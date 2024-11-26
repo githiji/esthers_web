@@ -14,6 +14,7 @@ class Crop(models.Model):
     crop_name = models.CharField(max_length=100)
     crop_quantity = models.IntegerField
     crop_price = models.IntegerField
+    image = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.crop_name

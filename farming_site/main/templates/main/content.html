@@ -3,20 +3,13 @@
 {%block title%} content page{%endblock%}
 {%block content%} <p>this is where the contents will appear</p>
 <h1>Crops and Prices</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Crop Name</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for crop in crops %}
-                <tr>
-                    <td>{{ crop.crop_name }}</td>
-                    <td>${{ crop.crop_price }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="crop-container">
+        {% for crop in crops %}
+        <div class="crop-card">
+            <img src="{{ crop.image.url }}" alt="{{ crop.name }}">
+            <h2>{{ crop.name }}</h2>
+            <p>Price: ${{ crop.price }}</p>
+        </div>
+        {% endfor %}
+    </div>
     {%endblock%}
