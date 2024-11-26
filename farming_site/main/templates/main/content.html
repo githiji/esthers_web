@@ -1,4 +1,22 @@
 {%extends 'main/base.html'%}
 
 {%block title%} content page{%endblock%}
-{%block content%} <p>this is where the contents will appear</p>{%endblock%}
+{%block content%} <p>this is where the contents will appear</p>
+<h1>Crops and Prices</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Crop Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for crop in crops %}
+                <tr>
+                    <td>{{ crop.crop_name }}</td>
+                    <td>${{ crop.crop_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {%endblock%}

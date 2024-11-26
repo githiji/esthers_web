@@ -1,0 +1,17 @@
+{%extends 'main/base.html'%}
+
+{%block title%} add crops page{%endblock%}
+{%block content%} <p>this is where the contents will appear</p>
+<form action="#" method="post">
+    {%csrf_token%}
+    <p>enter crops name.</p>
+    <input type="text" name="crops" placeholder="enter crops name">
+    <p>enter quantity</p>
+    <input type="text" name="quantity" placeholder="enter quantity">
+    <p>enter farm size</p>
+    <input type="text" name="farm_size" placeholder="enter farm size">
+    <p>enter price</p>
+    <input type="text" name="price" placeholder="enter price">
+    <button type="submit" name="addcrops" value="addcrops">submit</button>
+</form>
+{%endblock%}
