@@ -10,12 +10,13 @@ class Farm(models.Model):
         return self.farm_name
 # Create your models here.
 
+
 class Crop(models.Model):
-    crop_name = models.CharField(max_length=100)
-    crop_quantity = models.IntegerField
-    crop_price = models.IntegerField
-    image = models.ImageField(upload_to='images/')
+    name = models.CharField(max_length=100)
+    price = models.IntegerField(default=0)
+    quantity = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='crop_images/')
 
     def __str__(self):
-        return self.crop_name
-    
+            return self.name
+                
