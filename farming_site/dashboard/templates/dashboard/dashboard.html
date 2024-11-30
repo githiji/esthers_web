@@ -1,0 +1,23 @@
+{%extends 'main/base.html'%}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Dashboard</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Tweet</button>
+    </form>
+
+    <h2>Recent Tweets</h2>
+    <div class="tweets">
+        {% for tweet in tweets %}
+            <div class="tweet">
+                <strong>{{ tweet.user.username }}</strong>:
+                <p>{{ tweet.content }}</p>
+                <small>Posted on {{ tweet.created_at }}</small>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
