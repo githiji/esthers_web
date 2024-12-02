@@ -18,3 +18,4 @@ class CropForm(forms.ModelForm):
             'image': forms.FileInput(attrs={'class': 'form-control-file'}),
         }
     
+
