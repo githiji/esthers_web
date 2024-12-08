@@ -4,6 +4,11 @@ from .forms import CropForm
 
 # Create your views here.
 def home(request):
+   if request.method == 'POST':
+       if request.POST.get('login'):
+           return redirect('/login')
+       elif request.POST.get('singup'):
+           return redirect('/register')
    return render( request,'main/home.html', {})
 
 def content(request):
@@ -25,5 +30,9 @@ def add_item(request):
         if form.is_valid():
             form.save()
             return redirect('content')
+    else:
+        form = CropForm()
 
     return render(request,'main/add_item.html',{'form':CropForm()})
+
+

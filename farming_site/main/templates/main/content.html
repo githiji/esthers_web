@@ -3,14 +3,17 @@
 {%block title%} content page{%endblock%}
 {%block content%} <p>this is where the contents will appear</p>
 <h1>Crops and Prices</h1>
-    <div class="crop-container">
-        {% for crop in crops %}
-        <div class="crop-card">
-            <img src="{{ crop.image.url }}" alt="an image of a crop">
+<main class="crop-container">
+    {% for crop in crops %}
+    <div class="crop-card">
+        <img src="https://img.freepik.com/premium-photo/human-hand-holding-corn-field_1048944-30829318.jpg?w=360" alt="Image of {{ crop.name }}">
+        <div class="crop-info">
             <h2>{{ crop.name }}</h2>
-            <p>Price: ${{ crop.price }}</p>
+            <p class="price">Price: ${{ crop.price }}</p>
         </div>
-        {% endfor %}
+    </div>
+    {% endfor %}
+</main>
     </div>
     {%endblock%}
     

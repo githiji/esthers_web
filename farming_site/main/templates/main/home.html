@@ -1,11 +1,12 @@
 {%extends 'main/base.html'%}
 {%block title%}home page {%endblock%}
-{%block content%}
+{%block noneuser%}
  <section>
      <h1>home page</h1>
      <p>we offer good quality services </p>
 
-    <form action="">
+    <form action="#" method="POST">
+         {% csrf_token %}
         <button class="btn" type="submit" name="login" value="login">login</button>
         <p>if not yet registed click on singup</p>
         <button class="btn" type="submit" name="singup" value="singup">singup</button>
@@ -15,7 +16,13 @@
     <h2>what we offer</h2>
     <ul>
         <li>
-            fruits
+            fruits 
+        </li>
+        <li>
+            vegetables
+        </li>
+        <li>
+            grains
         </li>
     </ul>
  </section>

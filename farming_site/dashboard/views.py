@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tweet
+from main.models import Tweet
 from .forms import TweetForm
 
 def dashboard(request):

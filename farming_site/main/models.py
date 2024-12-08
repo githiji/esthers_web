@@ -16,8 +16,16 @@ class Crop(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField(default=0)
     quantity = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='crop_images/')
+    image = models.ImageField(upload_to='images/')
 
     def __str__(self):
             return self.name
+    
 
+class Tweet(models.Model):
+    user = models.CharField(max_length=100)
+    content = models.TextField(max_length=280)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.content
