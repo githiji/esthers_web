@@ -13,21 +13,6 @@ lang="en">
     <header class="page-header">
         <h1>{% block header %} welcome to esy's Farming {% endblock %}</h1>
     </header>
-    <div class = 'sidebar'>
-        <div class="sidebar-header">
-            <h2>FarmApp</h2>
-        </div>
-        <ul class="sidebar-menu">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/content">Crops</a></li>
-            <li><a href="/dasboard">Dashboard</a></li>
-            <li><a href="/add">Upload</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Singup</a></li>
-            <li ><a href="/logout">Logout</a></li>
-            
-        </ul>
-     </div>
      <div class="content">
      <h2>we have the best crops</h2>
      
@@ -37,10 +22,11 @@ lang="en">
         
              {% block content %}{% endblock %}
     </div>
-     <footer class="page-footer">
+    
+    </div>
+    <footer class="page-footer">
         <p>Copyright &copy; 2022</p>
     </footer>
-    </div>
 </body>
 
 </Html>
