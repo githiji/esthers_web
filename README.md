@@ -5,10 +5,8 @@ also has a dashboard where users can chat.
 
 ## Setup
 1. clone the repo
-2. create a venv:
-    python -m venv venv
-3. install dependencies:
-    pip install requirements.txt
-4. run the app:
-    python manage.py runserver
+2. build the docker container:
+    docker build -t esthers_web:farming -f ./Dockerfile .
+3. run the container:
+    docker run -p 8000:8000 esthers_web:farming
 5. access via browser at http://localhost:8000

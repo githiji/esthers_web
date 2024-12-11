@@ -1,5 +1,5 @@
 # Use the official Python image as a base
-FROM python:3.10-slim
+FROM python:3.10
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -24,5 +24,5 @@ COPY . /app/
 EXPOSE 8000
 
 # Default command to run the application
-CMD ["python", "manage.py", "runserver", "127.0.0.0:8000"]
-
+ENTRYPOINT ["python", "manage.py"]
+CMD ["runserver", "0.0.0.0:8000"]
