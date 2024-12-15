@@ -1,4 +1,5 @@
 {%extends 'main/base.html'%}
+{% load static %}
 
 {%block title%} content page{%endblock%}
 {%block content%} <p>this is where the contents will appear</p>
@@ -6,7 +7,11 @@
 <main class="crop-container">
     {% for crop in crops %}
     <div class="crop-card">
-        <img src="https://img.freepik.com/premium-photo/human-hand-holding-corn-field_1048944-30829318.jpg?w=360" alt="Image of {{ crop.name }}">
+        {% if crop.image %}
+        <img src="{{ crop.image }}" alt="Image of {{ crop.name }}">
+        {% else %}
+        <img src="{% static 'img/empty.jpg' %}" alt="Image of {{ crop.name }}">    
+        {% endif %}
         <div class="crop-info">
             <h2>{{ crop.name }}</h2>
             <p class="price">Price: ${{ crop.price }}</p>

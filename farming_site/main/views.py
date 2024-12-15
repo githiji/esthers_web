@@ -28,11 +28,26 @@ def add_item(request):
     if request.method == 'POST':
         form = CropForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('content')
+              # Add parentheses to call the method
+            # Extract cleaned data from the form
+            if request.POST.get('add_crop'):
+                name = form.cleaned_data.get('name')
+                price = form.cleaned_data.get('price')
+                image = form.cleaned_data.get('image')
+                quantity = form.cleaned_data.get('quantity')  # Correct the typo
+
+                # Save the data to the database
+                saved_crop = Crop(
+                    name=name,
+                    price=price,
+                    image=image,
+                    quantity=quantity  # Use the corrected spelling
+                )
+                saved_crop.save()
+
+                return redirect('/content')  # Redirect to the desired page
     else:
         form = CropForm()
 
-    return render(request,'main/add_item.html',{'form':CropForm()})
-
+    return render(request, 'main/add_item.html', {'form': form})
 
