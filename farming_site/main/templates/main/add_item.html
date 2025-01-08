@@ -9,4 +9,11 @@
     <button class="btn" type="submit" name="add_crop" value="add_crop">add crops</button>
     
 </form>
+
+<form action="#" method="post">
+    {%csrf_token%}
+    <input type="text" name="crop_name" placeholder="delete crop">
+    
+    <button class="btn" type="submit" name="delete_crop" value="delete_crop">delete crops</button>
+</form>
 {%endblock%}

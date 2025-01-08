@@ -46,6 +46,11 @@ def add_item(request):
                 saved_crop.save()
 
                 return redirect('/content')  # Redirect to the desired page
+            elif request.POST.get('delete_crop'):
+                crop_name = request.POST.get('crop_name')
+                Crop.objects.filter(name=crop_name).delete()
+                return redirect('/content')
+
     else:
         form = CropForm()
 
