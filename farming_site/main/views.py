@@ -49,7 +49,7 @@ def add_item(request):
             elif request.POST.get('delete_crop'):
                 crop_name = request.POST.get('crop_name')
                 Crop.objects.filter(name=crop_name).delete()
-                return redirect('/content')
+            return redirect('/content')
 
     else:
         form = CropForm()
