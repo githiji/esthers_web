@@ -6,4 +6,6 @@ class CropForm(forms.Form):
     price = forms.IntegerField()
     quantity = forms.IntegerField()
     image = forms.ImageField()
+    second_image = forms.ImageField(required=False)
+
 

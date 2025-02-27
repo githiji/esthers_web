@@ -6,7 +6,7 @@
 <h1>Crops and Prices</h1>
 <main class="crop-container">
     {% for crop in crops %}
-    <div class="crop-card">
+    <div class="crop-card"  onclick="window.location.href='{{ crop.id}}'">
         {% if crop.image %}
         <img src="{{ crop.image }}" alt="Image of {{ crop.name }}">
         {% else %}

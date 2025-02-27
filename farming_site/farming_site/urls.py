@@ -19,12 +19,13 @@ from django.urls import path,include
 from dashboard import views as dash_views
 from django.conf import settings
 from django.conf.urls.static import static
-from register import views as reg_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
     path('dashboard/', dash_views.dashboard, name='dashboard'),
-    path('register/',reg_views.register,name='register'),
+    path('register/', include('register.urls')),
+    path('register/', include('django.contrib.auth.urls')),
     path('', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

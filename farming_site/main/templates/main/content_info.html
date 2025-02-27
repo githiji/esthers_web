@@ -1,0 +1,18 @@
+{%extends 'main/base.html'%}
+
+{%block content%}
+ <h1>{{item.name}}</h1>
+ <p>Price: ${{item.price}}</p>
+ <p>Quantity: {{item.quantity}}</p>
+ 
+ <img src="/media/{{item.image}}" alt="Image of {{ item.name }}">
+ <img src="{{item.second_image}}" alt="second image">
+ <p>Comment: {{item.comment}}</p>
+
+ <form action="#" method="post">
+    {%csrf_token%}
+    <input type="text" name="comment" placeholder="comment">
+    
+    <button class="btn" type="submit" name="comment" value="comment">comment</button>
+ </form>
+{%endblock%}

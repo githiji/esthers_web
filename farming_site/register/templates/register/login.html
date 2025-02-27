@@ -1,13 +1,13 @@
 {%extends 'main/base.html'%}
 {%block title%}login page{%endblock%}
-{%block noneuser%} 
+
+{%block content%} 
 <form action="#" method="post">
     {%csrf_token%}
-    {{form}}
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
     
     <button class="btn" type="submit" name="login" value="login">login</button>
-    
-    <p>don't have an account? <a href="/register">singup here</a>  </p>
     
 </form>
 {%endblock%}

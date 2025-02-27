@@ -17,6 +17,8 @@ class Crop(models.Model):
     price = models.IntegerField(default=0)
     quantity = models.IntegerField(default=0)
     image = models.ImageField(upload_to='images/')
+    second_image=models.ImageField(upload_to='images/', null=True)
+    comment = models.TextField(max_length=280, null=True)
 
     def __str__(self):
             return self.name

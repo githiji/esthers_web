@@ -6,7 +6,7 @@ from .forms import CropForm
 def home(request):
    if request.method == 'POST':
        if request.POST.get('login'):
-           return redirect('/login')
+           return redirect('/register/login')
        elif request.POST.get('singup'):
            return redirect('/register')
    return render( request,'main/home.html', {})
@@ -14,8 +14,14 @@ def home(request):
 def content(request):
     crops = Crop.objects.all()
     return render( request, "main/content.html", {'crops':crops} )
-def contact(request):
-    pass
+def content_info(request, id ):
+   item = Crop.objects.get(id=id)
+   if request.method == 'POST':
+       if request.POST.get('comment')=='comment':
+           req = request.POST.get('comment')
+           save_comment= Crop(comment=req)
+           save_comment.save()
+   return render( request, "main/content_info.html", {'item':item} )
 
 def about(request):
     pass
@@ -34,14 +40,14 @@ def add_item(request):
                 name = form.cleaned_data.get('name')
                 price = form.cleaned_data.get('price')
                 image = form.cleaned_data.get('image')
-                quantity = form.cleaned_data.get('quantity')  # Correct the typo
-
+                quantity = form.cleaned_data.get('quantity')
+                second_image = form.cleaned_data.get('second_image')
                 # Save the data to the database
                 saved_crop = Crop(
                     name=name,
                     price=price,
                     image=image,
-                    quantity=quantity  # Use the corrected spelling
+                    quantity=quantity  
                 )
                 saved_crop.save()
 
