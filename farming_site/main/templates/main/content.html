@@ -12,6 +12,12 @@
         {% else %}
         <img src="{% static 'img/empty.jpg' %}" alt="Image of {{ crop.name }}">    
         {% endif %}
+        {% if user == crop.farm.name %}
+        <form action="#" method="post">
+            {%csrf_token%}
+            <button type="submit", name="delete" value="{{crop.id}}">Delete</button>
+        </form>
+        {% endif %}
         <div class="crop-info">
             <h2>{{ crop.name }}</h2>
             <p class="price">Price: ${{ crop.price }}</p>

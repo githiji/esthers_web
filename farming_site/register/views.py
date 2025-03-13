@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+
 def register(request):
     form = RegisterForm()
     if request.method == 'POST':
@@ -25,5 +26,9 @@ def login_user(request):
             return render(request, 'register/login.html', {})
     else:
         return render(request, 'register/login.html', {})
+    
+def logout_user(request):
+    logout(request)
+    return redirect('/')
 
 # Create your views here.

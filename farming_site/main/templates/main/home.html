@@ -7,12 +7,8 @@
 
     <form action="#" method="POST">
          {% csrf_token %}
-         {% if user.is_authenticated %}
-        <button class="btn" type="submit" name="login" value="login">login</button>
-        {% else %}
-        <p>if not yet registed click on singup</p>
         <button class="btn" type="submit" name="singup" value="singup">singup</button>
-        {% endif %}
+        <button class="btn" type="submit" name="login" value="login">login</button>
     </form>
  </section>
  <section>

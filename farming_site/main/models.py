@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Farm(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
     farm_name = models.CharField(max_length=100)
     farm_size = models.CharField(max_length=100)
 
@@ -13,6 +13,7 @@ class Farm(models.Model):
 
 
 class Crop(models.Model):
+    farm = models.ForeignKey(Farm, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     price = models.IntegerField(default=0)
     quantity = models.IntegerField(default=0)
